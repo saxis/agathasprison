@@ -39,7 +39,7 @@ export class AgathaDialog extends UniDialog {
         height: "25%",
         vAlign: "top",
         positionX: "10%",
-        positionY: "-75%",
+        positionY: "-65%",
         background: resources.textures.optionsContainer,
         backgroundConfig: { sourceWidth: 200, sourceHeight: 70 },
         optionsTextConfig: {
@@ -137,7 +137,7 @@ export class AgathaDialog extends UniDialog {
                 // })
             .endOption()
             .option(() => "-> Not just yet...")
-                .say(() => "You say, \"No just yet\"", {color: playerColor})
+                .say(() => "You say, \"Not just yet\"", {color: playerColor})
                 .say(() => 'Agatha says, "Please. I beg you! Find him"', {color: npcColor})
             .endOption()
             .option(() => "-> I have not started looking")
