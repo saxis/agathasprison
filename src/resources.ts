@@ -17,6 +17,10 @@ export default {
         button: new AudioClip("sounds/button.mp3")
     },
     models: {
+        yellowcrystal: new GLTFShape("models/Crystal_05/Crystal_05.glb"),
+        lightbluecrystal: new GLTFShape("models/Crystal_03/Crystal_03.glb"),
+        bluecrystal: new GLTFShape("models/Crystal_01/Crystal_01.glb"),
+        redcrystal: new GLTFShape("models/Crystal_02/Crystal_02.glb"),
         spicebag1: new GLTFShape("models/floor2/Spicesbag_01/Spicesbag_01.glb"),
         spicebag2: new GLTFShape("models/floor2/Spicesbag_02/Spicesbag_02.glb"),
         spicebag3: new GLTFShape("models/floor2/Spicesbag_03/Spicesbag_03.glb"),
