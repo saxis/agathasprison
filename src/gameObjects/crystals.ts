@@ -1,5 +1,5 @@
 import resources from "../resources";
-import { Crystal } from "./crystalState";
+import { Crystal } from "./crystal";
 
 const lightbluecrystal = new Crystal(
   resources.models.lightbluecrystal,
