@@ -1,7 +1,7 @@
 import { ICrystal } from "../interfaces/ICrystal";
 import resources from "../resources";
 import { CrystalState } from "./crystalState";
-import { turnOnCrystals } from "./crystals";
+import { Crystals } from "./crystals";
 
 export class Crystal extends Entity {
     public isOpen: boolean;
@@ -13,7 +13,9 @@ export class Crystal extends Entity {
       model: GLTFShape,
       transform: TranformConstructorArgs,
       matchString: string,
+      matchString2: string,
       successCondition: ICrystal,
+      successCondition2: ICrystal
     ) {
       super();
       engine.addEntity(this);
@@ -26,18 +28,32 @@ export class Crystal extends Entity {
           this.playAudio()
           log(`Current matchString: ${matchString}`)
           
-          let success = this.testCrystal(successCondition)
-          if(success) {
-            log('Matched the Success Condition')
-            this.hideCrystal(matchString)
+          let success = {}
+          if (this.crystalState.crystalState.secondCrystalPass) {
+            success = this.testCrystal(successCondition2)
+            if(success) {
+                log('Matched the Success2 Condition')
+                this.hideCrystal(matchString2)
+              } else {
+                log("Matched the failure2 condition")
+                this.showCrystal()
+              }
           } else {
-            log("Matched the failure condition")
-            this.showCrystal()
+            success = this.testCrystal(successCondition)
+            if(success) {
+                log('Matched the Success Condition')
+                this.hideCrystal(matchString)
+              } else {
+                log("Matched the failure condition")
+                this.showCrystal()
+              }
           }
+          
+          
         }, {
           button: ActionButton.PRIMARY,
           showFeeback: true,
-          hoverText: "Play Chime"
+          hoverText: "Investigate Crystal"
         })
       )
     }
@@ -110,23 +126,30 @@ export class Crystal extends Entity {
       return status
     }
 
+
    
     public showCrystal():void {
+        let first = true;
+        let second = false;
+
+        if (this.crystalState.crystalState.firstCrystalPass) {
+            first = false
+            second = true
+        } 
 
       this.crystalState.crystalState = {
         firstlightblueremoved: false,
         secondyellowremoved: false,
         thirdblueremoved: false,
         fourthredremoved: false,
-        firstCrystalPass: true,
+        firstCrystalPass: first,
         firstbluepasstwo: false,
         secondlightbluepasstwo: false,
         thirdyellowpasstwo: false,
         fourthredpasstwo: false,
-        secondCrystalPass: false
+        secondCrystalPass: second
       }
 
-      turnOnCrystals()
 
       log(this.crystalState)
   }

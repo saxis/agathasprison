@@ -14,7 +14,9 @@ export default {
         fighterhit: new AudioClip("sounds/fighterhit.mp3"),
         missioncomplete: new AudioClip("sounds/missioncomplete.mp3"),
         executioner: new AudioClip("sounds/executioner.mp3"),
-        button: new AudioClip("sounds/button.mp3")
+        button: new AudioClip("sounds/button.mp3"),
+        spellAttack1: new AudioClip("sounds/zapsplat_magic1.mp3"),
+        evillaugh: new AudioClip("sounds/crazyChickLaugh.mp3")
     },
     models: {
         yellowcrystal: new GLTFShape("models/Crystal_05/Crystal_05.glb"),

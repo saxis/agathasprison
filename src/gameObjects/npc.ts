@@ -1,24 +1,39 @@
-export class Npc {
-    private _hp: number;
+export class Npc extends Entity {
+  private _hp: number;
+  //private _walkClip: AnimationState
 
-    constructor(public startingHp: number) {}
+  constructor(sound: AudioClip, model: GLTFShape, startingHp: number) {
+    super();
+    engine.addEntity(this);
+    this.addComponent(model);
+    this.addComponent(
+      new Transform({
+        position: new Vector3(8, 0.4, 8)
+      })
+    );
+    this.addComponent(new AudioSource(sound));
+    this._hp = startingHp;
+  }
 
-    get hp() {
-        return this._hp;
+  public playAudio() {
+    this.getComponent(AudioSource).playOnce();
+  }
+
+  get hp() {
+    return this._hp;
+  }
+
+  set hp(val: number) {
+    if (val > 0) {
+      this._hp = val;
     }
+  }
 
-    set hp(val: number) {
-        if (val > 0) {
-            this._hp = val;
-        }
-    }
-    
-    heal(amount: number) {
-        this.hp += amount;
-    }
+  heal(amount: number) {
+    this.hp += amount;
+  }
 
-    takedamage(amount: number) {
-        this.hp -= amount;
-    }
-
+  takedamage(amount: number) {
+    this.hp -= amount;
+  }
 }
