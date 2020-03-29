@@ -26,25 +26,25 @@ export class Crystal extends Entity {
       this.addComponent(
         new OnPointerDown(e => {
           this.playAudio()
-          log(`Current matchString: ${matchString}`)
+          // log(`Current matchString: ${matchString}`)
           
           let success = {}
           if (this.crystalState.crystalState.secondCrystalPass) {
             success = this.testCrystal(successCondition2)
             if(success) {
-                log('Matched the Success2 Condition')
+                // log('Matched the Success2 Condition')
                 this.hideCrystal(matchString2)
               } else {
-                log("Matched the failure2 condition")
+                // log("Matched the failure2 condition")
                 this.showCrystal()
               }
           } else {
             success = this.testCrystal(successCondition)
             if(success) {
-                log('Matched the Success Condition')
+                // log('Matched the Success Condition')
                 this.hideCrystal(matchString)
               } else {
-                log("Matched the failure condition")
+                // log("Matched the failure condition")
                 this.showCrystal()
               }
           }
@@ -67,19 +67,19 @@ export class Crystal extends Entity {
 
         for (const key in this.crystalState.crystalState) {
           if (key.indexOf(matchString) > -1) { 
-            log(`${key} match`)
+            // log(`${key} match`)
             //this.crystalState.crystalState[key] = true;
             let tempState = this.crystalState.crystalState
-            log('tempState: ', tempState)
+            // log('tempState: ', tempState)
             tempState[key] = true;
             this.crystalState.crystalState = tempState
-            log('crystalState after truth ', this.crystalState.crystalState)
+            // log('crystalState after truth ', this.crystalState.crystalState)
             engine.removeEntity(this)
           }
         }
 
         //log('crystalState at the end of hideCrystal: ', this.crystalState)
-        log('crystalState at the end of hideCrystal: ', this.crystalState.crystalState)
+        // log('crystalState at the end of hideCrystal: ', this.crystalState.crystalState)
     }
 
     
@@ -87,33 +87,33 @@ export class Crystal extends Entity {
       let status = true
 
       if (this.crystalState.crystalState.firstlightblueremoved != successCondition.firstlightblueremoved) { 
-        log(`this.crystalState.firstlightblueremoved: ${this.crystalState.crystalState.firstlightblueremoved}`)
-        log(`successCondition.firstlightblueremoved: ${successCondition.firstlightblueremoved}`)
-        log(`setting status to false`)
+        // log(`this.crystalState.firstlightblueremoved: ${this.crystalState.crystalState.firstlightblueremoved}`)
+        // log(`successCondition.firstlightblueremoved: ${successCondition.firstlightblueremoved}`)
+        // log(`setting status to false`)
         status = false 
       }
       if (this.crystalState.crystalState.secondyellowremoved != successCondition.secondyellowremoved) { 
-        log(`this.crystalState.secondyellowremoved: ${this.crystalState.crystalState.secondyellowremoved}`)
-        log(`successCondition.secondyellowremoved: ${successCondition.secondyellowremoved}`)
-        log(`setting status to false`)
+        // log(`this.crystalState.secondyellowremoved: ${this.crystalState.crystalState.secondyellowremoved}`)
+        // log(`successCondition.secondyellowremoved: ${successCondition.secondyellowremoved}`)
+        // log(`setting status to false`)
         status = false 
       }
       if (this.crystalState.crystalState.thirdblueremoved != successCondition.thirdblueremoved) { 
-        log(`this.crystalState.thirdblueremoved: ${this.crystalState.crystalState.thirdblueremoved}`)
-        log(`successCondition.thirdblueremoved: ${successCondition.thirdremoved}`)
-        log(`setting status to false`) 
+        // log(`this.crystalState.thirdblueremoved: ${this.crystalState.crystalState.thirdblueremoved}`)
+        // log(`successCondition.thirdblueremoved: ${successCondition.thirdremoved}`)
+        // log(`setting status to false`) 
         status = false 
       }
       if (this.crystalState.crystalState.fourthredremoved != successCondition.fourthredremoved) { 
-        log(`this.crystalState.fourthredremoved: ${this.crystalState.crystalState.fourthredremoved}`)
-        log(`successCondition.fourthredemoved: ${successCondition.fourthredremoved}`)
-        log(`setting status to false`)  
+        // log(`this.crystalState.fourthredremoved: ${this.crystalState.crystalState.fourthredremoved}`)
+        // log(`successCondition.fourthredemoved: ${successCondition.fourthredremoved}`)
+        // log(`setting status to false`)  
         status = false 
       }
       if (this.crystalState.crystalState.firstCrystalPass != successCondition.firstCrystalPass) { 
-        log(`this.crystalState.firstCrystalPass: ${this.crystalState.crystalState.firstCrystalPass}`)
-        log(`successCondition.firstCrystalPass: ${successCondition.firstCrystalPass}`)
-        log(`setting status to false`)  
+        // log(`this.crystalState.firstCrystalPass: ${this.crystalState.crystalState.firstCrystalPass}`)
+        // log(`successCondition.firstCrystalPass: ${successCondition.firstCrystalPass}`)
+        // log(`setting status to false`)  
         status = false 
       }
       if (this.crystalState.crystalState.firstbluepasstwo != successCondition.firstbluepasstwo) { status = false }
@@ -122,7 +122,7 @@ export class Crystal extends Entity {
       if (this.crystalState.crystalState.fourthredpasstwo != successCondition.fourthredpasstwo) { status = false}
       if (this.crystalState.crystalState.secondCrystalPass != successCondition.secondCrystalPass) { status = false}
 
-      log(`returning the following status: ${status}`)
+      // log(`returning the following status: ${status}`)
       return status
     }
 
@@ -151,7 +151,7 @@ export class Crystal extends Entity {
       }
 
 
-      log(this.crystalState)
+      log(this.crystalState.crystalState)
   }
   
   }
