@@ -1,6 +1,6 @@
 import { BaseScene } from "./gameObjects/baseScene";
 import resources from "./resources";
-import { AgathaDialog } from "./ui/index";
+import { AgathaDialog } from "./ui/agathaDialog";
 import { StonePedestal } from "./gameObjects/stonePedestalState";
 import { Crystals } from "./gameObjects/crystals";
 import { CrystalState } from "./gameObjects/crystalState";
@@ -11,9 +11,7 @@ import { createInventory } from "../node_modules/decentraland-builder-scripts/in
 import Script1 from "../ff9257ec-9d62-404f-97c7-cf19c4035761/src/item";
 import Script2 from "../7402ef02-fc7f-4e19-b44a-4613ee2526c5/src/item";
 import Script3 from "../df8d742f-045c-4fe3-8c70-adfb47d22baf/src/item";
-import { getUserData } from "@decentraland/Identity"
-
-
+import { getUserData } from "@decentraland/Identity";
 
 // Scene Setup
 
@@ -34,22 +32,12 @@ let secondpasscompleted = false;
 let firstcrystalpass = false;
 let secondcrystalpass = false;
 let agathaclicked = false;
-let playerName = "Adventurer";
-let dialog;
 
 const gameCanvas = new UICanvas();
+const dialog = new AgathaDialog(gameCanvas);
 const text = new UIText(gameCanvas);
 const instructions = new UIText(gameCanvas);
 
-// Get User Data
-
-const userData = executeTask(async () => {
-  const data = await getUserData()
-  playerName = data.displayName
-  dialog = new AgathaDialog(gameCanvas, playerName);
-  log(data.displayName)
-  return data.displayName
-})
 
 // Setup Debugging Panel. Set visible to false for Production
 
@@ -65,6 +53,12 @@ instructions.hAlign = "left";
 instructions.positionX = 200;
 instructions.vAlign = "center";
 instructions.visible = false;
+
+const userData = executeTask(async () => {
+      const data = await getUserData();
+      log(data.displayName);
+      return data.displayName;
+    });
 
 
 
@@ -388,9 +382,9 @@ function spawnLoot() {
   const script1 = new Script1();
   const script2 = new Script2();
   const script3 = new Script3();
-  script1.init(options);
+  script1.init();
   script2.init(options);
-  script3.init(options);
+  script3.init();
   script1.spawn(
     fantasyChest,
     { onClickText: "Use the Key", onClick: [], onOpen: [], onClose: [] },
