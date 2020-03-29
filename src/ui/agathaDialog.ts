@@ -10,8 +10,9 @@ export class AgathaDialog extends UniDialog {
   //public onCorrectAnswer: (questionId: number) => void;
   public onSequenceComplete: () => void;
   public onQuestComplete: () => void;
+  private _playerName: string;
 
-  constructor(gameCanvas: UICanvas) {
+  constructor(gameCanvas: UICanvas, playerName: string) {
     // Create a new SimpleDialog to manage the dialog tree
     super({
       canvas: gameCanvas,
@@ -31,6 +32,7 @@ export class AgathaDialog extends UniDialog {
         },
         background: resources.textures.textContainer,
         backgroundConfig: { sourceWidth: 200, sourceHeight: 70 }
+        
       },
       optionsContainer: {
         stackOrientation: UIStackOrientation.VERTICAL,
@@ -53,26 +55,20 @@ export class AgathaDialog extends UniDialog {
       }
     });
 
+    this._playerName = playerName
+
     // Variables used in the dialog tree
     let firstTimeDialog = true;
-    //let unlockDoor = false;
 
     // Dialog text colors
     const npcColor = Color4.White();
     const playerColor = Color4.Black();
 
-    // const trigger = new Entity();
-    // engine.addEntity(trigger);
-    // trigger.addComponent(
-    //   new Transform({
-    //     position: new Vector3(20.255, 1.6, 21)
-    //   })
-    // );
 
     this.dialogTree = new UniDialog.DialogTree()
     .if(() => firstTimeDialog)
         .call(() => (firstTimeDialog = false))
-        .say(() => 'Agatha says, "Hail traveler. Perhaps you can help me? I seem to be stuck in this stone [circle]. "',{ color: npcColor }) 
+        .say(() => `Agatha says, "Hail ${playerName}. Perhaps you can help me? I seem to be [trapped]. "`,{ color: npcColor }) 
         .beginOptionsGroup()
            .option(() => "-> What circle?")
                .say(() => "You say, \"What do you mean by circle?\"", { color : playerColor })

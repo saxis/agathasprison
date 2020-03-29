@@ -1,7 +1,7 @@
 {
-  "name": "eb4111e0-df2d-4321-a570-e6e61e59c9b6",
+  "name": "dcl-project",
   "version": "1.0.0",
-  "description": "Agatha's Prison",
+  "description": "My new Decentraland project",
   "scripts": {
     "start": "dcl start",
     "build": "build-ecs",
@@ -11,13 +11,9 @@
     "ecs:install-next": "npm install --save-dev decentraland-ecs@next"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.149",
-    "decentraland-ecs": "^6.4.4"
+    "decentraland-ecs": "next"
   },
   "dependencies": {
-    "decentraland-builder-scripts": "latest",
-    "decentraland-ecs-utils": "^1.1.4",
-    "lodash": "^4.17.15",
-    "lodash-es": "^4.17.15"
+    "decentraland-builder-scripts": "^0.24.0"
   }
 }
