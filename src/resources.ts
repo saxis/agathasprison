@@ -51,6 +51,8 @@ export default {
     },
     textures: {
         textContainer: new Texture("src/images/dialogs/Sax_Text_Box_Fantasy_200x70.png"),
+        //textContainer: new Texture("src/images/dialogs/Sax_Text_Box_Fantasy_1.png"),
         optionsContainer: new Texture("src/images/dialogs/Sax_Text_Box_Fantasy_200x70.png"),
+        //optionsContainer: new Texture("src/images/dialogs/Sax_Text_Box_clean.png")
       }
 }

@@ -134,7 +134,7 @@ export class BattleCry {
       let transform = agatha.getComponent(Transform);
       //let path = sorceress.getComponent(LerpData);
       let dist = distance(transform.position, camera.position);
-      if (dist < 32 && !playerdead) {
+      if (dist < 40 && !playerdead) {
         if (!agathadead || !playerdead) {
           if (spellAttack1.playing == false) {
             if (dialogComplete) {
@@ -148,6 +148,7 @@ export class BattleCry {
               walkClip.playing = false;
               turnRClip.playing = false;
               hitInFace.playing = false;
+
               PLAYER_HP--;
               text.value = `HP: ${PLAYER_HP}    Agatha HP: ${HIT_POINTS}`;
 
@@ -189,11 +190,6 @@ dialog.onQuestComplete = () => {
   dialogComplete = true;
 };
 
-//engine.addEntity(sorceress);
-//walkClip.play();
-//sorceress.addComponent(new LerpData());
-// engine.addEntity(sorceress);
-// walkClip.play();
 
 // Track Completion of the Crystal Puzzle
 
@@ -272,7 +268,8 @@ export class CrystalCheck {
             {
               button: ActionButton.PRIMARY,
               showFeeback: true,
-              hoverText: "Attack"
+              hoverText: "Attack",
+              distance: 3
             }
           )
         );
@@ -292,6 +289,11 @@ engine.addSystem(new CrystalCheck());
 
 export class HpCheck {
   update() {
+    // if (spellAttack1.playing) {
+    //   PLAYER_HP--;
+    //   text.value = `HP: ${PLAYER_HP}    Agatha HP: ${HIT_POINTS}`;
+    // }
+    
     // log(
     //   `agathaclicked: ${agathaclicked} attackable: ${attackable} agathadead: ${agathadead} playerdead: ${playerdead}`
     // );
@@ -488,9 +490,9 @@ function hitAgatha() {
 
     log("Setting secondpasscompleted to true");
     secondpasscompleted = true;
-  } else if (HIT_POINTS == 0) {
+  } else if (HIT_POINTS == 0 && firstcrystalpass || secondpasscompleted) {
     log("play death animation");
-    //     text.value = `HP: ${PLAYER_HP}    Agatha HP: ${HIT_POINTS}`;
+
     agathadead = true;
     walkClip.stop();
     turnRClip.stop();

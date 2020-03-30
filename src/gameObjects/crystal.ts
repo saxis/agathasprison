@@ -53,7 +53,8 @@ export class Crystal extends Entity {
         }, {
           button: ActionButton.PRIMARY,
           showFeeback: true,
-          hoverText: "Investigate Crystal"
+          hoverText: "Investigate Crystal",
+          distance: 3
         })
       )
     }

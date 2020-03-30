@@ -75,7 +75,7 @@ export class AgathaDialog extends UniDialog {
       )
       .beginOptionsGroup()
       .option(() => "-> What sort of prison?")
-      .say(() => 'You say, "What sort of prison? I might be able to help."', {
+      .say(() => 'You say, "What sort of prison? I might be able to help.".', {
         color: playerColor
       })
       .say(
@@ -85,10 +85,10 @@ export class AgathaDialog extends UniDialog {
       )
       .endOption()
       .option(() => "-> Why would I care enough to help?")
-      .say(() => 'You say, "Why should I help you?"', { color: playerColor })
+      .say(() => 'You say, "Why should I help you?".', { color: playerColor })
       .say(
         () =>
-          `Agatha says, "I will be sure to make it worth your while ${this.playerName}"`,
+          `Agatha says, "I will be sure to make it worth your while ${this.playerName}."`,
         { color: npcColor }
       )
       .endOption()
@@ -96,7 +96,7 @@ export class AgathaDialog extends UniDialog {
       .say(() => `You say, "How do you know y name?"`, { color: playerColor })
       .say(
         () =>
-          `Agatha say, "I know many things ${this.playerName}. Help me and I will help you.`,
+          `Agatha say, "I know many things ${this.playerName}. Help me and I will help you."`,
         { color: npcColor }
       )
       .endOption()
@@ -105,17 +105,17 @@ export class AgathaDialog extends UniDialog {
       .endOptionsGroup()
       .say(
         () =>
-          `Agatha says, "There is some pattern here that can be used to free me`,
+          `Agatha says, "There is some pattern here that can be used to free me."`,
         { color: npcColor }
       )
       .say(
         () =>
-          'Agatha says, "If you get stuck there may be a man who can provide some answers"',
+          'Agatha says, "If you get stuck there may be a man who can provide some answers."',
         { color: npcColor }
       )
       .say(
         () =>
-          'Agatha says, "Search to the west. There is a man called water or something like that. "',
+          'Agatha says, "Search to the west. There is a man called water or something like that."',
         { color: npcColor }
       )
       .say(() => 'Agatha says, "He may be able to [help]."', {
@@ -125,7 +125,7 @@ export class AgathaDialog extends UniDialog {
       .option(() => "-> I will do my best!")
       .say(
         () =>
-          'You say, "I will try to find him and then come back and help you"',
+          'You say, "I will try to find the sequence."',
         { color: playerColor }
       )
       .say(
