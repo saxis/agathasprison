@@ -21,7 +21,7 @@ let crystals = new Crystals();
 // Set Inital Variables
 
 let HIT_POINTS = 5;
-let PLAYER_HP = 50;
+let PLAYER_HP = 20;
 let agathadead = false;
 let playerdead = false;
 let attackable = false;
@@ -134,7 +134,7 @@ export class BattleCry {
       let transform = agatha.getComponent(Transform);
       //let path = sorceress.getComponent(LerpData);
       let dist = distance(transform.position, camera.position);
-      if (dist < 16 && !secondpasscompleted) {
+      if (dist < 32 && !playerdead) {
         if (!agathadead || !playerdead) {
           if (spellAttack1.playing == false) {
             if (dialogComplete) {
@@ -426,7 +426,7 @@ function hitAgatha() {
   log("Updating Player Alert Box with new HP values");
   text.value = `HP: ${PLAYER_HP}    Agatha HP: ${HIT_POINTS}`;
 
-  if (HIT_POINTS == 3 && !firstpasscompleted) {
+  if (HIT_POINTS == 4 && !firstpasscompleted) {
     log("Setting puzzle solved to false");
     puzzlesolved = false;
 
