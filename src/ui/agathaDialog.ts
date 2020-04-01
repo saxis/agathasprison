@@ -24,11 +24,12 @@ export class AgathaDialog extends UniDialog {
         positionY: "-45%",
         textSpeed: 10,
         textIdleTime: 2,
-        textConfig: {
-          fontSize: 18,
-          positionX: "8%"
-        },
-        background: resources.textures.textContainer,
+        textConfig: { fontSize: 16, paddingLeft: 25, paddingRight: 25 },
+        // textConfig: {
+        //   fontSize: 18,
+        //   positionX: "8%"
+        // },
+        background: resources.textures.blueContainer,
         backgroundConfig: { sourceWidth: 200, sourceHeight: 70 }
       },
       optionsContainer: {
@@ -39,13 +40,14 @@ export class AgathaDialog extends UniDialog {
         vAlign: "top",
         positionX: "10%",
         positionY: "-65%",
-        background: resources.textures.optionsContainer,
+        background: resources.textures.blueContainer,
         backgroundConfig: { sourceWidth: 200, sourceHeight: 70 },
-        optionsTextConfig: {
-          fontSize: 18,
-          paddingLeft: 55,
-          positionY: -50 //was -50
-        }
+        optionsTextConfig: { fontSize: 20, paddingLeft: 20, positionY: "-35%" }
+        // optionsTextConfig: {
+        //   fontSize: 18,
+        //   paddingLeft: 55,
+        //   positionY: -50 //was -50
+        // }
       }
     });
 
