@@ -47,7 +47,7 @@ text.positionX = -80;
 text.visible = true;
 
 instructions.value =
-  "Agatha beat your ass and took off. Maybe the old man can help you figure out what to do next.";
+  "Agatha has defeated you and escaped. Maybe the old man can help you figure out what to do next.";
 instructions.fontSize = 30;
 instructions.hAlign = "left";
 instructions.positionX = 200;
@@ -329,7 +329,7 @@ function spawnLoot() {
   engine.addEntity(fantasyChest);
   fantasyChest.setParent(_scene);
   const transform3 = new Transform({
-    position: new Vector3(6, 0.4, 6.5),
+    position: new Vector3(6, 0.4, 6.5)
     rotation: new Quaternion(0, 0, 0, 1),
     scale: new Vector3(1, 1, 1)
   });
@@ -355,24 +355,24 @@ function spawnLoot() {
   });
   scroll.addComponentOrReplace(transform5);
 
-  // const oldIronSword = new Entity("oldIronSword");
-  // engine.addEntity(oldIronSword);
-  // oldIronSword.setParent(baseScene);
-  // const transform6 = new Transform({
-  //   position: new Vector3(6, 0.4, 6.5),
-  //   rotation: new Quaternion(
-  //     -7.781870092739773e-16,
-  //     0.7071068286895752,
-  //     -8.429368136830817e-8,
-  //     -0.7071068286895752
-  //   ),
-  //   scale: new Vector3(1.000008225440979, 1, 0.5000041127204895)
-  // });
-  // oldIronSword.addComponentOrReplace(transform6);
-  // const gltfShape2 = new GLTFShape("models/Sword_02/Sword_02.glb");
-  // gltfShape2.withCollisions = true;
-  // gltfShape2.visible = true;
-  // oldIronSword.addComponentOrReplace(gltfShape2);
+  const oldIronSword = new Entity("oldIronSword");
+  engine.addEntity(oldIronSword);
+  oldIronSword.setParent(baseScene);
+  const transform6 = new Transform({
+    position: new Vector3(6, 0.4, 6.5),
+    rotation: new Quaternion(
+      -7.781870092739773e-16,
+      0.7071068286895752,
+      -8.429368136830817e-8,
+      -0.7071068286895752
+    ),
+    scale: new Vector3(1.000008225440979, 1, 0.5000041127204895)
+  });
+  oldIronSword.addComponentOrReplace(transform6);
+  const gltfShape2 = new GLTFShape("models/Sword_02/Sword_02.glb");
+  gltfShape2.withCollisions = true;
+  gltfShape2.visible = true;
+  oldIronSword.addComponentOrReplace(gltfShape2);
 
   const channelId = Math.random()
     .toString(16)

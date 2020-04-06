@@ -36,9 +36,6 @@ export default {
         sackOfPotatoes: new GLTFShape("models/sackofpotatoes.glb"),
         woodTable: new GLTFShape("models/Table_Wood_01/Table_Wood_01.glb"),
         woodenDoor: new GLTFShape("models/Door_Wood_01/Door_Wood_01.glb"),
-        stairFence: new GLTFShape('models/StairFence_01.glb'),
-        wallStoneLarge: new GLTFShape('models/Wall_Stone_Large.glb'),
-        outsideStairs: new GLTFShape('models/Module_Stair_Stones_3M/Module_Stair_Stones_3M.glb'),
         chairwood: new GLTFShape('models/floor2/Chairwood_02/Chairwood_02.glb'),
         tablewood: new GLTFShape('models/floor2/TableWood_01/TableWood_01.glb'),
         barrel: new GLTFShape('models/floor2/Barrel_01/Barrel_01.glb'),
@@ -50,10 +47,6 @@ export default {
         bannerred: new GLTFShape('models/floor2/Banner_Red_02/Banner_Red_02.glb')
     },
     textures: {
-        textContainer: new Texture("src/images/dialogs/Sax_Text_Box_Fantasy_200x70.png"),
-        //textContainer: new Texture("src/images/dialogs/Sax_Text_Box_Fantasy_1.png"),
-        optionsContainer: new Texture("src/images/dialogs/Sax_Text_Box_Fantasy_200x70.png"),
         blueContainer: new Texture("src/images/dialogs/Sax_Text_Box_blue.png")
-        //optionsContainer: new Texture("src/images/dialogs/Sax_Text_Box_clean.png")
       }
 }
