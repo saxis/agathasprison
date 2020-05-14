@@ -17,37 +17,25 @@ export class AgathaDialog extends UniDialog {
     super({
       canvas: gameCanvas,
       dialogText: {
-        width: "50%",
+        width: "47%",
         height: "25%",
-        vAlign: "top",
-        positionX: "10%",
-        positionY: "-45%",
-        textSpeed: 10,
+        positionY: "-14%",
+        textSpeed: 5,
         textIdleTime: 2,
-        textConfig: { fontSize: 16, paddingLeft: 25, paddingRight: 25 },
-        // textConfig: {
-        //   fontSize: 18,
-        //   positionX: "8%"
-        // },
-        background: resources.textures.blueContainer,
+        textConfig: { fontSize: 18, paddingLeft: 25, paddingRight: 25 },
+        background: resources.textures.grayContainer,
         backgroundConfig: { sourceWidth: 200, sourceHeight: 70 }
       },
       optionsContainer: {
         stackOrientation: UIStackOrientation.VERTICAL,
-        spacing: 2,
-        width: "50%",
-        height: "25%",
+        width: "47%",
+        height: "15%",
         vAlign: "top",
-        positionX: "10%",
-        positionY: "-65%",
-        background: resources.textures.blueContainer,
-        backgroundConfig: { sourceWidth: 200, sourceHeight: 70 },
-        optionsTextConfig: { fontSize: 20, paddingLeft: 20, positionY: "-35%" }
-        // optionsTextConfig: {
-        //   fontSize: 18,
-        //   paddingLeft: 55,
-        //   positionY: -50 //was -50
-        // }
+        hAlign: "center",
+        positionY: "-75%",
+        background: resources.textures.grayContainer,
+        backgroundConfig: {sourceWidth: 200, sourceHeight: 70},
+        optionsTextConfig: { fontSize: 18, paddingLeft: 20, positionY: "-60%", color: Color4.Red()}
       }
     });
 
@@ -58,12 +46,15 @@ export class AgathaDialog extends UniDialog {
     const npcColor = Color4.White();
     const playerColor = Color4.Black();
 
+    const apiResponse = {'line1':'Agatha says, "This is from api. Perhaps you can help me? I seem to be [trapped]."'}
+
 
     this.dialogTree = new UniDialog.DialogTree()
       .if(() => firstTimeDialog)
       .call(() => (firstTimeDialog = false))
       .say(
         () =>
+          // apiResponse.line1,
           `Agatha says, "Hail ${this.playerName}. Perhaps you can help me? I seem to be [trapped]. "`,
         { color: npcColor }
       )

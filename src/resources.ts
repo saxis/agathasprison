@@ -19,34 +19,14 @@ export default {
         evillaugh: new AudioClip("sounds/crazyChickLaugh.mp3")
     },
     models: {
+        agatha: new GLTFShape("models/agatha1.glb"),
         yellowcrystal: new GLTFShape("models/Crystal_05/Crystal_05.glb"),
         lightbluecrystal: new GLTFShape("models/Crystal_03/Crystal_03.glb"),
         bluecrystal: new GLTFShape("models/Crystal_01/Crystal_01.glb"),
         redcrystal: new GLTFShape("models/Crystal_02/Crystal_02.glb"),
-        spicebag1: new GLTFShape("models/floor2/Spicesbag_01/Spicesbag_01.glb"),
-        spicebag2: new GLTFShape("models/floor2/Spicesbag_02/Spicesbag_02.glb"),
-        spicebag3: new GLTFShape("models/floor2/Spicesbag_03/Spicesbag_03.glb"),
-        longcrate: new GLTFShape("models/CrateLong_02/CrateLong_02.glb"),
-        lanternLit: new GLTFShape('models/lantern_lit.glb'),
-        blackStone: new GLTFShape('models/Stone_Module_4M/Stone_Module_4M.glb'),
-        sorceress: new GLTFShape("models/sorceressAnimated3.glb"),
-        squareButton: new GLTFShape("models/Square_Button.glb"),
-        peasantGirl: new GLTFShape('models/peasantAnimated.glb'),
-        peasant: new GLTFShape("models/peasantAnimated2.glb"),
-        sackOfPotatoes: new GLTFShape("models/sackofpotatoes.glb"),
-        woodTable: new GLTFShape("models/Table_Wood_01/Table_Wood_01.glb"),
-        woodenDoor: new GLTFShape("models/Door_Wood_01/Door_Wood_01.glb"),
-        chairwood: new GLTFShape('models/floor2/Chairwood_02/Chairwood_02.glb'),
-        tablewood: new GLTFShape('models/floor2/TableWood_01/TableWood_01.glb'),
-        barrel: new GLTFShape('models/floor2/Barrel_01/Barrel_01.glb'),
-        barrel2: new GLTFShape('models/floor2/Barrel_02/Barrel_02.glb'),
-        plate: new GLTFShape('models/floor2/Plate_01/Plate_01.glb'),
-        fishskeleton: new GLTFShape('models/floor2/FishSkeleton_01/FishSkeleton_01.glb'),
         dagger: new GLTFShape('models/floor2/Dagger_01/Dagger_01.glb'),
-        bannerblue: new GLTFShape('models/floor2/Banner_Blue_02/Banner_Blue_02.glb'),
-        bannerred: new GLTFShape('models/floor2/Banner_Red_02/Banner_Red_02.glb')
     },
     textures: {
-        blueContainer: new Texture("src/images/dialogs/Sax_Text_Box_blue.png")
+        grayContainer: new Texture("src/images/dialogs/graybox.png")
       }
 }

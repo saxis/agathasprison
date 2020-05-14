@@ -12,6 +12,7 @@ import Script1 from "../ff9257ec-9d62-404f-97c7-cf19c4035761/src/item";
 import Script2 from "../7402ef02-fc7f-4e19-b44a-4613ee2526c5/src/item";
 import Script3 from "../df8d742f-045c-4fe3-8c70-adfb47d22baf/src/item";
 import { getUserData } from "@decentraland/Identity";
+import { BuilderHUD } from "./modules/BuilderHUD";
 
 // Scene Setup
 
@@ -47,19 +48,31 @@ text.positionX = -80;
 text.visible = true;
 
 instructions.value =
-  "Agatha has defeated you and escaped. Maybe the old man can help you figure out what to do next.";
-instructions.fontSize = 30;
+  "Agatha has defeated you and escaped. Maybe Old Man Rivers can help you figure out what to do next.";
+instructions.fontSize = 16;
 instructions.hAlign = "left";
 instructions.positionX = 200;
 instructions.vAlign = "center";
 instructions.visible = false;
 
-const userData = executeTask(async () => {
-      const data = await getUserData();
-      log(data.displayName);
-      return data.displayName;
-    });
+// const userData = executeTask(async () => {
+//       const data = await getUserData();
+//       log(data.displayName);
+//       return data.displayName;
+//     });
 
+    const gameboard = new Entity("entity");
+    engine.addEntity(gameboard);
+    const gltfShape8 = new GLTFShape("models/altar_final_glb.glb");
+    gltfShape8.withCollisions = true;
+    gltfShape8.visible = true;
+    gameboard.addComponentOrReplace(gltfShape8);
+    const transform12 = new Transform({
+      position: new Vector3(8, 0, 8),
+      rotation: new Quaternion(0, 0, 0, 1),
+      scale: new Vector3(1, 1, 1),
+    });
+    gameboard.addComponentOrReplace(transform12);
 
 
 // Setup Game Objects
@@ -78,20 +91,21 @@ engine.addEntity(soundbox2);
 
 const agathasCage = new Entity("agathasCage");
 engine.addEntity(agathasCage);
-const cageShape = new GLTFShape("models/cage2.glb");
+//const cageShape = new GLTFShape("models/cage2.glb");
+const cageShape = new GLTFShape("models/ring_final_glb.glb")
 agathasCage.addComponentOrReplace(cageShape);
 const cageLoc = new Transform({
-  position: new Vector3(8, 0.4, 8),
+  position: new Vector3(8, 0, 8),
   rotation: new Quaternion(0, 0, 0, 1),
   scale: new Vector3(1, 1, 1)
 });
 agathasCage.addComponentOrReplace(cageLoc);
 
-const cagePedestal = new StonePedestal(resources.sounds.missioncomplete);
+//const cagePedestal = new StonePedestal(resources.sounds.missioncomplete);
 
 const agatha = new Npc(
   resources.sounds.goblinHit,
-  resources.models.sorceress,
+  resources.models.agatha,
   5
 );
 //agatha.addComponent(new TimeOut(HIT_TIM));
@@ -145,8 +159,8 @@ export class BattleCry {
 
               box.getComponent(AudioSource).playOnce();
 
-              walkClip.playing = false;
-              turnRClip.playing = false;
+              //walkClip.playing = false;
+              //turnRClip.playing = false;
               hitInFace.playing = false;
 
               PLAYER_HP--;
@@ -329,7 +343,7 @@ function spawnLoot() {
   engine.addEntity(fantasyChest);
   fantasyChest.setParent(_scene);
   const transform3 = new Transform({
-    position: new Vector3(6, 0.4, 6.5)
+    position: new Vector3(6, 0.4, 6.5),
     rotation: new Quaternion(0, 0, 0, 1),
     scale: new Vector3(1, 1, 1)
   });
@@ -357,7 +371,7 @@ function spawnLoot() {
 
   const oldIronSword = new Entity("oldIronSword");
   engine.addEntity(oldIronSword);
-  oldIronSword.setParent(baseScene);
+  //oldIronSword.setParent(baseScene);
   const transform6 = new Transform({
     position: new Vector3(6, 0.4, 6.5),
     rotation: new Quaternion(
@@ -418,8 +432,8 @@ function hitAgatha() {
   attackable = false;
   log("Hit Agatha");
 
-  walkClip.playing = false;
-  turnRClip.playing = false;
+//  walkClip.playing = false;
+  //turnRClip.playing = false;
   deathFromFront.playing = false;
   log("Playing agatha audio");
   agatha.getComponent(AudioSource).playOnce();
@@ -494,14 +508,14 @@ function hitAgatha() {
     log("play death animation");
 
     agathadead = true;
-    walkClip.stop();
-    turnRClip.stop();
+    //walkClip.stop();
+    //turnRClip.stop();
     hitInFace.stop();
     spellAttack1.stop();
     spellAttack2.stop();
     deathFromFront.play();
     deathFromFront.looping = false;
-    cagePedestal.playAudio();
+    //cagePedestal.playAudio();
     agatha.addComponentOrReplace(
       new OnPointerDown(
         e => {
@@ -522,3 +536,6 @@ function hitAgatha() {
 
   agathaclicked = false;
 }
+
+// const hud: BuilderHUD = new BuilderHUD()
+// hud.attachToEntity(crystals.bluecrystal)

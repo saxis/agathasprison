@@ -7,12 +7,12 @@ export class Crystals {
   lightbluecrystal = new Crystal(
     resources.models.lightbluecrystal,
     new Transform({
-      position: new Vector3(13.5, 0, 3),
+      position: new Vector3(14, 1.4, 2),
       rotation: new Quaternion(0, 0, 0, 1),
       scale: new Vector3(1, 1, 1)
     }),
     "firstlightblue",
-    "secondlightblue"
+    "secondlightblue",
     {
       firstlightblueremoved: false,
       secondyellowremoved: false,
@@ -41,7 +41,7 @@ export class Crystals {
   yellowcrystal = new Crystal(
     resources.models.yellowcrystal,
     new Transform({
-      position: new Vector3(13.5, 0, 13),
+      position: new Vector3(14, 1.4, 14),
       rotation: new Quaternion(0, 0, 0, 1),
       scale: new Vector3(1, 1, 1)
     }),
@@ -75,8 +75,8 @@ export class Crystals {
   bluecrystal = new Crystal(
     resources.models.bluecrystal,
     new Transform({
-      position: new Vector3(3, 0, 3),
-      rotation: new Quaternion(0, 0, 0, 1),
+      position: new Vector3(2, 1.4, 2),
+      rotation: new Quaternion(0, .6, 0, 1),
       scale: new Vector3(1, 1, 1)
     }),
     "thirdblue",
@@ -109,8 +109,8 @@ export class Crystals {
   redcrystal = new Crystal(
     resources.models.redcrystal,
     new Transform({
-      position: new Vector3(3, 0, 13),
-      rotation: new Quaternion(0, 0, 0, 1),
+      position: new Vector3(2, 1.5, 14),
+      rotation: new Quaternion(0, .8, 0, 1),
       scale: new Vector3(1, 1, 1)
     }),
     "fourthred",
