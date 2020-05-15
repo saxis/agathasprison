@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.149",
-    "decentraland-ecs": "^6.4.4"
+    "decentraland-ecs": "^6.4.8"
   },
   "dependencies": {
     "decentraland-builder-scripts": "latest",
