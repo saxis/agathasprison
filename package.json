@@ -17,7 +17,7 @@
   "dependencies": {
     "decentraland-builder-scripts": "latest",
     "decentraland-ecs-utils": "^1.1.4",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "lodash-es": "^4.17.15"
   }
 }
